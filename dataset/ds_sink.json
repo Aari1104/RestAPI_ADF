@@ -1,0 +1,58 @@
+{
+	"name": "ds_sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_output",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": "RestAPI",
+				"fileSystem": "demorest"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Avg. Area Income",
+				"type": "String"
+			},
+			{
+				"name": "Avg. Area House Age",
+				"type": "String"
+			},
+			{
+				"name": "Avg. Area Number of Rooms",
+				"type": "String"
+			},
+			{
+				"name": "Avg. Area Number of Bedrooms",
+				"type": "String"
+			},
+			{
+				"name": "Area Population",
+				"type": "String"
+			},
+			{
+				"name": "Price",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
